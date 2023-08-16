@@ -18,7 +18,7 @@ Para rodar o projeto acesse o link https://editor.p5js.org/pabletsplays/full/kc7
 <table>
   <tr>
     <td align="center">
-      <a href="http://github.com/tatialveso">
+      <a href="http://github.com/pabletsstep">
         <img src="https://avatars.githubusercontent.com/u/139282386?v=4" width="100px;" alt="Foto de Pablo Andrade Git Hub"/><br>
         <sub>
           <b>Pablo Andrade</b>
