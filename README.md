@@ -1,4 +1,4 @@
-<h1 align="center">:file_cabinet: Free Way Game</h1>
+<h1 align="center">:file_cabinet: Pong</h1>
 
 ## :memo: Descrição
 Projeto feito para aprimorar meus conhecimentos em Javascript, e aprender mais sobre a biblioteca do p5.js.
