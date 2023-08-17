@@ -32,15 +32,27 @@ let raquetada;
 let ponto;
 let trilha;
 
+//variaveis botao som
+let imagemSom;
+let botaoSomX = 40;
+let botaoSomY = 5;
+let larguraBotaoX = 25;
+let larguraBotaoY = 25;
+let som = false;
+let botaoSomMudoX = 10
+let botaoSomMudoY = 5
+let larguraSomMudoX = 25
+let larguraSomMudoY = 25
+
 function preload() {
   trilha = loadSound("trilha.mp3");
   ponto = loadSound("ponto.mp3");
   raquetada = loadSound("raquetada.mp3");
+  imagemSom = loadImage("icone-som.png");
 }
 
 function setup() {
   createCanvas(600, 400);
-  trilha.loop();
 }
 
 function draw() {
@@ -58,7 +70,8 @@ function draw() {
   verificaColisaoRaquete(xRaqueteOponente, yRaqueteOponente);
   incluiPlacar();
   marcaPonto();
-  //bolinhaNaoFicaPresa();
+  bolinhaNaoFicaPresa();
+  mostraIconeSom();
 }
 
 function mostraBolinha() {
@@ -109,7 +122,10 @@ function verificaColisaoRaquete(x, y) {
   colidiu = collideRectCircle(x, y, raqueteComprimento, raqueteAltura, xBolinha, yBolinha, raio);
   if (colidiu) {
     velocidadeXBolinha *= -1;
-    raquetada.play();
+    if(som){
+       raquetada.play();
+       }
+    
   }
 }
 
@@ -163,11 +179,16 @@ function incluiPlacar(){
 function marcaPonto() {
   if (xBolinha > 590) {
     meusPontos += 1;
-    ponto.play();
+    if(som){
+       ponto.play();
+       }
+    
   }
   if (xBolinha < 10) {
     pontosDoOponente += 1;
-    ponto.play();
+    if(som){
+       ponto.play();
+       }
   }
 }
 
@@ -175,6 +196,26 @@ function marcaPonto() {
 
 function bolinhaNaoFicaPresa() {
     if (xBolinha - raio < 0){
-    xBolinha = 23
+      xBolinha = 40
     }
+}
+
+//icone som
+function mostraIconeSom(){
+  image(imagemSom, botaoSomX, botaoSomY, larguraBotaoX, larguraBotaoY);
+}
+function mostraIconeSom(){
+  image(imagemSom, botaoSomX, botaoSomY, larguraBotaoX, larguraBotaoY);
+}
+function mouseClicked() {
+  if(mouseX >= botaoSomX && mouseX <= botaoSomX + larguraBotaoX && mouseY >= botaoSomY && mouseY <= botaoSomY + larguraBotaoY){
+    if(som){
+      trilha.pause();
+      som = false;
+    } else {
+      trilha.loop();
+      som = true;
+    }
+  }
+  
 }
